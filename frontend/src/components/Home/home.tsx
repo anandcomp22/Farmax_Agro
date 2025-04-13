@@ -43,7 +43,7 @@ export const Home: React.FC = () => {
   ];
 
   const stats = [
-    { icon: <Leaf />, value: "10,000+", label: "Farmers" },
+    { icon: <Leaf />, value: "100+", label: "Farmers" },
     { icon: <CloudRain />, value: "95%", label: "Forecast Accuracy" },
     { icon: <BarChart3 />, value: "30%", label: "Yield Increase" }
   ];

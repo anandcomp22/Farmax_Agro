@@ -4,6 +4,8 @@ import { Cloud, Droplets, Thermometer, Sun } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { WeatherData } from '../types';
 
+
+
 const mockWeatherData: WeatherData[] = Array.from({ length: 7 }, (_, i) => ({
   date: format(new Date().setDate(new Date().getDate() + i), 'MMM dd'),
   temp: 20 + Math.random() * 10,

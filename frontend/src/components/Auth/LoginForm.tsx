@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Sprout, Mail, Lock } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface LoginFormProps {
   onLogin: (email: string, password: string) => void;
@@ -9,15 +9,16 @@ interface LoginFormProps {
 export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onLogin(email, password);
+    onLogin(email, password); 
+    navigate('/dashboard');    
   };
 
   return (
     <div className="min-h-screen flex">
-      {/* Left side - Background Image */}
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
@@ -28,14 +29,12 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
           <div className="absolute inset-0 bg-gradient-to-r from-green-500/80 to-green-700/80">
             <div className="flex flex-col justify-center h-full px-12 text-white">
               <h1 className="text-7xl font-bold mb-6">Welcome to Farmax Agro</h1>
-              <p className="text-xl">Smart Farming Solutions
-              with Farmax Agro</p>
+              <p className="text-xl">Smart Farming Solutions with Farmax Agro</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Right side - Login Form */}
       <div className="flex-1 flex items-center justify-center p-8 bg-gradient-to-br from-white via-green-50 to-green-100">
         <div className="w-full max-w-md animate-fade-in">
           <div className="text-center mb-8">

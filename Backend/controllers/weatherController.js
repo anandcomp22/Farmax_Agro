@@ -2,7 +2,7 @@ const axios = require('axios');
 
 exports.getWeather = async (req, res) => {
   try {
-    const city = req.query.city || 'Nashik'; // default fallback
+    const city = req.query.city || 'Pune'; // default fallback
     const apiKey = process.env.WEATHER_API_KEY;
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;

@@ -13,6 +13,7 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/crops', require('./routes/cropRoutes'));
 app.use('/api/weather', require('./routes/weatherRoutes'));
 app.use('/api/market', require('./routes/marketRoutes'));
+app.use('/api/market', require('./routes/enamRoutes'));
 
 app.get('/', (req, res) => {
   res.send('Farmax Agro Backend API is running...');

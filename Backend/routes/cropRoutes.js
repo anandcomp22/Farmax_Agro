@@ -8,12 +8,10 @@ const {
   deleteRecord
 } = require('../controllers/cropController');
 
-// Existing
 router.get('/', auth, getAllRecords);
 router.post('/', auth, addRecord);
 
-// ✅ New
-router.put('/:id', auth, updateRecord);   // PUT /api/crops/:id
-router.delete('/:id', auth, deleteRecord); // DELETE /api/crops/:id
+router.put('/:id', auth, updateRecord);  
+router.delete('/:id', auth, deleteRecord); 
 
 module.exports = router;

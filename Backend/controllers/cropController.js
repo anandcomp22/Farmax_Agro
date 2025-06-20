@@ -29,3 +29,31 @@ exports.addRecord = async (req, res) => {
     res.status(500).json({ message: "Failed to add record", error });
   }
 };
+
+exports.updateRecord = async (req, res) => {
+  try {
+    const updated = await CropRecord.findOneAndUpdate(
+      { _id: req.params.id, user: req.user.id },
+      req.body,
+      { new: true }
+    );
+    if (!updated) return res.status(404).json({ message: "Record not found" });
+    res.json(updated);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to update record", error });
+  }
+};
+
+exports.deleteRecord = async (req, res) => {
+  try {
+    const deleted = await CropRecord.findOneAndDelete({
+      _id: req.params.id,
+      user: req.user.id
+    });
+    if (!deleted) return res.status(404).json({ message: "Record not found" });
+    res.json({ message: "Record deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to delete record", error });
+  }
+};
+

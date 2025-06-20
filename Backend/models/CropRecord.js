@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const cropRecordSchema = new mongoose.Schema({
-  farmerId: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true

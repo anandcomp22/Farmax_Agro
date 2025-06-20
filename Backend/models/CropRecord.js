@@ -1,20 +1,16 @@
 const mongoose = require('mongoose');
 
 const cropRecordSchema = new mongoose.Schema({
-  user: {
+  farmerId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
   },
-  name: String,
+  crop: String,
+  area: Number,
   plantingDate: Date,
   harvestDate: Date,
-  area: Number,  // in acres
-  status: {
-    type: String,
-    enum: ['growing', 'harvested', 'failed'],
-    default: 'growing'
-  },
+  status: String, 
   notes: String
 }, { timestamps: true });
 
